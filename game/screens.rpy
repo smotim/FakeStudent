@@ -470,7 +470,7 @@ style game_menu_outer_frame:
     background "gui/overlay/game_menu.png"
 
 style game_menu_navigation_frame:
-    xsize 280
+    xsize 500
     yfill True
 
 style game_menu_content_frame:
