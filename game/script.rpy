@@ -20,56 +20,32 @@ define main = Character("[name]")
 
 # Игра начинается здесь:
 label start:
-    
+    "В этой игре вы можете выбрать имя главного героя"
     #выбор имени
     python:
-        name=renpy.input("Пока мы не начали, не расскажете как вас зовут?\n(Имя по-умолчанию - Саад")
+        name=renpy.input("Введите имя или нажмите Enter, чтобы пропустить")
         name=name.strip() or "Саад"
     #начало сюжета
     scene guk
     show gus
-
+    "Теперь тебя зовут [name]"
     g "Привет, [name]!"
-    main "wtf"
+    main "Привет!"
 
     g "Ты запустил образовательную игру \"Fake Student\""
+    g "Если что, открыть меню можно клавишей \"esc\" или правой кнопкой мыши."
+    g "Попробуй выйти в меню. Там ты увидишь, что в этой игре можно сохраняться."
+    g "Если захочешь вернуться на предыдущий слайд, можно покрутить колесико мыши"
 
-    show gus at left
-    g "If you press the \'esc\' button, you can go to \'settings\' and change the interface language"
-    g "Now you can choose the language of the story. "
-    g "Russian characters who speak Russian will always speak Russian. Your choice will 
-    change the language in which I speak and the main character thinks."
+    show gus at left 
+    with Dissolve(.5)
+    g "Хоба"
+    g "Разработчики перевели игру на несолько языков"
+    g "Ты можешь поменять язык в настройках"
 
-    menu:
+    #Здесь, по плану, начинается пролог игры. 
+    
 
-        "Я хочу играть на русском":
-            jump choice1_russian
-
-        "The main character will think in English":
-            jump choice1_english
-
-        "البطل المهم سوف يفكر باللغة العربية\n work in progress":
-            jump choice1_arabic
-
-    label choice1_russian:
-
-        g "Хорошо. К сожалению русская версия находится в разработке. Несколько раз нажмите
-         \"Назад\" внизу экрана и выберите английский язык, если хотите продолжить "
-
-        jump map
-
-    label choice1_english:
-
-        g "Great!"
-
-        jump map
-
-    label choice1_arabic:
-
-        g "Good. Unfortunately, the Arabic version is in development. Tap repeatedly
-         \"Back\" at the bottom of the screen and select English if you want to continue"
-
-        jump map
     
     #код карты
     screen map():
