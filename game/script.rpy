@@ -26,7 +26,7 @@ label start:
         name=renpy.input("Пока мы не начали, не расскажете как вас зовут?\n(Имя по-умолчанию - Саад")
         name=name.strip() or "Саад"
     #начало сюжета
-    scene tegeran
+    scene guk
     show gus
 
     g "Привет, [name]!"
@@ -70,84 +70,64 @@ label start:
          \"Back\" at the bottom of the screen and select English if you want to continue"
 
         jump map
+    
     #код карты
-    label map:
-        screen map:
-                imagemap:
-                    ground "images/map.jpg"
-                    idle "images/map.jpg"
-                    hotspot (330, 510, 110, 100) action Return("label_1") alt "label_1"
-                    hotspot (504, 540, 60, 60) action Return("label_2") alt "label_2"
-                    hotspot (207, 630, 60, 60) action Return("label_3") alt "label_3"
-                    hotspot (177, 900, 60, 60) action Return("label_4") alt "label_4"
-                    hotspot (520, 325, 60, 60) action Return("label_5") alt "label_5"
-                    hotspot (840, 627, 60, 60) action Return("label_6") alt "label_6"
-                    hotspot (1458, 770, 60, 60) action Return("label_7") alt "label_7"
-                    hotspot (1477, 400, 70, 70) action Return("label_8") alt "label_8"
-                    hotspot (1182, 120, 70, 70) action Return("label_9") alt "label_9"
+    screen map():
+            imagemap:
+                ground "images/map.jpg"
+                idle "images/map.jpg"
+                hotspot (330, 510, 110, 100) action Jump("guk")
+                hotspot (504, 540, 60, 60) action Jump("ineu")
+                hotspot (207, 630, 60, 60) action Jump("label_3")
+                hotspot (177, 900, 60, 60) action Jump("stroika") 
+                hotspot (520, 325, 60, 60) action Jump("teplofuck")
+                hotspot (840, 627, 60, 60) action Jump("label_6")
+                hotspot (1458, 770, 60, 60) action Jump("label_7") 
+                hotspot (1477, 400, 70, 70) action Jump("label_8")
+                hotspot (1182, 120, 70, 70) action Jump("dormitory")
 
-        window hide None
+    label map:
+        # вызов карты
         call screen map
-    if Return == "label_1":
-        jump label_1
-    if Return == "label_2":
-        jump label_2  
-    if Return == "label_3":
-        jump label_3
-    if Return == "label_4":
-        jump label_4
-    if Return == "label_5":
-        jump label_5            
-    if Return == "label_9":
-        jump label_9 
-        
-    label label_1:
-        window hide None
+    #Места, в которые можно перейти
+    label guk:
         scene guk
-        g "sadsa"
+        g "Добро пожаловать в ГУК!"
         jump imagemap_done
-    label label_2:
-        window hide None
+    label ineu:
         scene ineu
-        g "sadsa"
+        g "Ты в ИНЭУ"
         jump imagemap_done 
-    label label_3:
-        window hide None
+    label label_3:#todo левое крыло гука
         scene guk
         g "sadsa"
         jump imagemap_done 
-    label label_4:
-        window hide None
+    label stroika:
         scene stroika
-        g "sadsa"
+        g "Стройка"
         jump imagemap_done
-    label label_5:
-        window hide None
+    label teplofuck:
         scene teplofuck
-        g "sadsa"
+        g "Теплофак❤"
         jump imagemap_done 
-    label label_6:
-        window hide None
+    label label_6:#todo ФТИ
         scene guk
         g "sadsa"
         jump imagemap_done
-    label label_7:
-        window hide None
+    label label_7:#todo Радик
         scene guk
         g "sadsa"
         jump imagemap_done
-    label label_8:
-        window hide None
+    label label_8:#todo Физ-ра
         scene guk
         g "sadsa"
         jump imagemap_done   
-    label label_9:
-        window hide None
-        scene hotel
-        g "sdvsdvds"
+    label dormitory:
+        scene dormitory
+        g "Родная общага"
         jump imagemap_done 
     label imagemap_done:
-        return    
+        return     
 return
         
 
