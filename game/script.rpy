@@ -20,11 +20,13 @@ define main = Character("[name]")
 
 # Игра начинается здесь:
 label start:
+    
+    #выбор имени
     python:
         name=renpy.input("Пока мы не начали, не расскажете как вас зовут?\n(Имя по-умолчанию - Саад")
         name=name.strip() or "Саад"
+    #начало сюжета
     scene tegeran
-
     show gus
 
     g "Привет, [name]!"
@@ -40,8 +42,8 @@ label start:
 
     menu:
 
-        "Карта":
-            jump imagemap_example
+        "Я хочу играть на русском":
+            jump choice1_russian
 
         "The main character will think in English":
             jump choice1_english
@@ -49,148 +51,105 @@ label start:
         "البطل المهم سوف يفكر باللغة العربية\n work in progress":
             jump choice1_arabic
 
-    label imagemap_example:
-
-    # Call the imagemap_example screen.
-    call screen imagemap
-
     label choice1_russian:
 
         g "Хорошо. К сожалению русская версия находится в разработке. Несколько раз нажмите
          \"Назад\" внизу экрана и выберите английский язык, если хотите продолжить "
 
-        jump choice1_done
+        jump map
 
     label choice1_english:
 
         g "Great!"
 
-        jump choice1_done
+        jump map
 
     label choice1_arabic:
 
         g "Good. Unfortunately, the Arabic version is in development. Tap repeatedly
          \"Back\" at the bottom of the screen and select English if you want to continue"
 
-        jump choice1_done
+        jump map
+    #код карты
+    label map:
+        screen map:
+                imagemap:
+                    ground "images/map.jpg"
+                    idle "images/map.jpg"
+                    hotspot (330, 510, 110, 100) action Return("label_1") alt "label_1"
+                    hotspot (504, 540, 60, 60) action Return("label_2") alt "label_2"
+                    hotspot (207, 630, 60, 60) action Return("label_3") alt "label_3"
+                    hotspot (177, 900, 60, 60) action Return("label_4") alt "label_4"
+                    hotspot (520, 325, 60, 60) action Return("label_5") alt "label_5"
+                    hotspot (840, 627, 60, 60) action Return("label_6") alt "label_6"
+                    hotspot (1458, 770, 60, 60) action Return("label_7") alt "label_7"
+                    hotspot (1477, 400, 70, 70) action Return("label_8") alt "label_8"
+                    hotspot (1182, 120, 70, 70) action Return("label_9") alt "label_9"
 
-    label choice1_done:
-
-        scene chudesnyi
-
-        g "Нам пора изучить падежи! Хочешь ли ты перечитать \nтеорию или сразу приступить к примерам?"
-
-        menu:
-
-            "Можете, пожалуйста, напомнить мне теорию?":
-                jump choice2_yes
-
-            "Я помню теорию!":
-                jump choice2_no
-
-        label choice2_yes:
-
-            $ menu_flag = True
-
-            g "Не бойся, 2B нас спасёт."
-
-            jump choice2_teoriya
-
-        label choice2_no:
-
-            $ menu_flag = False            
-
-            g "Нам пора идти в вуз, у старосты есть какие-то новости."
-
-            scene lekcionnaya
-
-            jump choice2_praktik
-
-        label choice2_teoriya:
+        window hide None
+        call screen map
+    if Return == "label_1":
+        jump label_1
+    if Return == "label_2":
+        jump label_2  
+    if Return == "label_3":
+        jump label_3
+    if Return == "label_4":
+        jump label_4
+    if Return == "label_5":
+        jump label_5            
+    if Return == "label_9":
+        jump label_9 
         
-            jump choice2_done
-
-        label choice2_praktik:
-
-            show pasha at right 
-
-            p "Давай пойдём сегодня на АЛЯСКУ?"
-
-            
-
-            menu:
-
-                "А что такое АЛЯСКА?":
-                    jump praktik_a
-
-                "Да, давай, там удобнее всего!":
-                    jump praktik_b
-
-                "Ну не знаю... Я всегда думал, что там хуже слышно преподавателя.":
-                    jump praktik_c    
-
-            label praktik_a:
-
-                show pasha at right
-
-                p "АЛЯСКОЙ на студенческом сленге называют места в аудитории, которые расположены дальше всего от преподавателей"
-
-                hide pasha
- 
-                jump choice2_done
-
-            label praktik_b:
-
-                s "О чём ты? Взгляни какой ясный денёчек!"
-
-                jump choice2_done
-
-            label praktik_c:
-
-                show igor at right    
-
-                i "ня"
-
-                hide igor
-
-                jump choice2_done
-
-        label choice2_done:
-
-            show igor at right
-
-            show gus
-
-            g "А теперь давай проверим, как хорошо ты понимаешь то, чем ты пользуешься!"
-
-            show pasha:
-                xalign 0.3
-                yalign 1.0
- 
-            p "Неееет..."
-
-            hide pasha
-
-            hide igor
-
-            hide gus
-
-            show pasha at right 
-
-            p "Почему тебе не нравятся ЗАДНИЕ РЯДЫ АУДИТОРИИ?"
-
-            menu:
-
-                "Я не хочу сидеть НАВЕРХУ...":
-                    jump praktik_a
-
-                "Это же КОНЕЦ АУДИТОРИИ, мне будет плохо видно.":
-                    jump praktik_b
-
-                "Всё хорошо, ПОСЛЕДНИЕ РЯДЫ – это круто!":
-                    jump praktik_c        
- 
+    label label_1:
+        window hide None
+        scene guk
+        g "sadsa"
+        jump imagemap_done
+    label label_2:
+        window hide None
+        scene ineu
+        g "sadsa"
+        jump imagemap_done 
+    label label_3:
+        window hide None
+        scene guk
+        g "sadsa"
+        jump imagemap_done 
+    label label_4:
+        window hide None
+        scene stroika
+        g "sadsa"
+        jump imagemap_done
+    label label_5:
+        window hide None
+        scene teplofuck
+        g "sadsa"
+        jump imagemap_done 
+    label label_6:
+        window hide None
+        scene guk
+        g "sadsa"
+        jump imagemap_done
+    label label_7:
+        window hide None
+        scene guk
+        g "sadsa"
+        jump imagemap_done
+    label label_8:
+        window hide None
+        scene guk
+        g "sadsa"
+        jump imagemap_done   
+    label label_9:
+        window hide None
+        scene hotel
+        g "sdvsdvds"
+        jump imagemap_done 
+    label imagemap_done:
         return    
+return
+        
 
 
    
