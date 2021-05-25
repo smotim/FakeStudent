@@ -27,8 +27,8 @@ label start:
         name=name.strip() or "Саад"
     #начало сюжета
     scene guk
-    show gus
     "Теперь тебя зовут [name]"
+    show gus
     g "Привет, [name]!"
     main "Привет!"
 
@@ -52,15 +52,16 @@ label start:
             imagemap:
                 ground "images/map.jpg"
                 idle "images/map.jpg"
-                hotspot (330, 510, 110, 100) action Jump("guk")
-                hotspot (504, 540, 60, 60) action Jump("ineu")
-                hotspot (207, 630, 60, 60) action Jump("label_3")
-                hotspot (177, 900, 60, 60) action Jump("stroika") 
-                hotspot (520, 325, 60, 60) action Jump("teplofuck")
-                hotspot (840, 627, 60, 60) action Jump("label_6")
-                hotspot (1458, 770, 60, 60) action Jump("label_7") 
-                hotspot (1477, 400, 70, 70) action Jump("label_8")
-                hotspot (1182, 120, 70, 70) action Jump("dormitory")
+                hotspot (330, 510, 110, 100) action Jump("guk")#на карте номер 1
+                hotspot (504, 540, 60, 60) action Jump("ineu")#на карте номер 2
+                #hotspot (207, 630, 60, 60) action Jump("label_3")
+                hotspot (177, 900, 60, 60) action Jump("stroika")#на карте номер 4 
+                hotspot (520, 325, 60, 60) action Jump("teplofuck")#на карте номер 5
+                hotspot (840, 627, 60, 60) action Jump("fizteh")#на карте номер 6
+                hotspot (1458, 770, 60, 60) action Jump("chempion")#на карте номер 7 
+                hotspot (1477, 400, 70, 70) action Jump("label_8")#на карте номер 8
+                hotspot (1182, 120, 70, 70) action Jump("dormitory")#на карте номер 9
+                hotspot (1264, 848, 134, 96) action Jump("inmt")#пока без номера
 
     label map:
         # вызов карты
@@ -74,10 +75,10 @@ label start:
         scene ineu
         g "Ты в ИНЭУ"
         jump imagemap_done 
-    label label_3:#todo левое крыло гука
-        scene guk
-        g "sadsa"
-        jump imagemap_done 
+    #label label_3:#todo левое крыло гука
+        #scene guk
+        #g "sadsa"
+        #jump imagemap_done 
     label stroika:
         scene stroika
         g "Стройка"
@@ -86,13 +87,13 @@ label start:
         scene teplofuck
         g "Теплофак❤"
         jump imagemap_done 
-    label label_6:#todo ФТИ
-        scene guk
-        g "sadsa"
+    label fizteh:
+        scene fizteh
+        g "Welcome"
         jump imagemap_done
-    label label_7:#todo Радик
-        scene guk
-        g "sadsa"
+    label chempion:
+        scene chempion
+        g "*Эта локация одобрена разработчиками*"
         jump imagemap_done
     label label_8:#todo Физ-ра
         scene guk
@@ -101,6 +102,9 @@ label start:
     label dormitory:
         scene dormitory
         g "Родная общага"
+    label inmt:
+        scene inmt
+        g "Кеша"
         jump imagemap_done 
     label imagemap_done:
         return     
