@@ -1,9 +1,7 @@
 ﻿# Вы можете расположить сценарий своей игры в этом файле.
 # Определение персонажей игры.
 define g = Character('Гусь', color="#c8fff8")
-define s = Character('Староста', color="#c6fcc8")
-define p = Character('Паша', color="#c7fbc8")
-define i = Character('Игорь', color="#c8fff8")
+define s = Character('[name]', color="#c6fcc8")
 image gus = im.Scale("gus.png", 480, 700)
 define main = Character("[name]")
  
@@ -44,8 +42,14 @@ label start:
     g "Ты можешь поменять язык в настройках"
 
     #Здесь, по плану, начинается пролог игры. 
+    #TODO здесь скрыть экран
+    s "Я плохо учился в школе, не смог никуда поступить."
+    scene secret base
     
-
+    show saad 
+    with Dissolve(.6)
+    s "Из-за этого пришлось искать работу."
+    s "Нигде не задерживался на долго"
     
     #код карты
     screen map():
