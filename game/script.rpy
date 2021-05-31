@@ -1,9 +1,7 @@
 ﻿# Вы можете расположить сценарий своей игры в этом файле.
 # Определение персонажей игры.
 define g = Character('Гусь', color="#c8fff8")
-define s = Character('Староста', color="#c6fcc8")
-define p = Character('Паша', color="#c7fbc8")
-define i = Character('Игорь', color="#c8fff8")
+define s = Character('[name]', color="#c6fcc8")
 image gus = im.Scale("gus.png", 480, 700)
 define main = Character("[name]")
  
@@ -20,6 +18,8 @@ define main = Character("[name]")
 
 # Игра начинается здесь:
 label start:
+
+ 
     "В этой игре вы можете выбрать имя главного героя"
     #выбор имени
     python:
@@ -36,33 +36,38 @@ label start:
     g "Если что, открыть меню можно клавишей \"esc\" или правой кнопкой мыши."
     g "Попробуй выйти в меню. Там ты увидишь, что в этой игре можно сохраняться."
     g "Если захочешь вернуться на предыдущий слайд, можно покрутить колесико мыши"
-
     show gus at left 
     with Dissolve(.5)
     g "Хоба"
     g "Разработчики перевели игру на несолько языков"
     g "Ты можешь поменять язык в настройках"
 
-    #Здесь, по плану, начинается пролог игры. 
+    g "Кстати, ты сегодня взял студик?"
+    menu:
+        "Да":
+            $start_flag=False
+        "Нет":
+            $start_flag=False
+        "А что это":
+            g "Странно, что ты не знаешь. Студиком называют \"студенческий билет\". Это пропуск, по которому студенты заходят в институт."
+            $start_flag=True
+            $ renpy.notify("Новое слово добавлено в словарь")
     
+    show screen dictionaryButton(start_flag)
 
+    #Здесь, по плану, начинается пролог игры. 
+    #TODO здесь скрыть экран
+    s "Здравствуйте, Денис Борисович!"
+    s "Я плохо учился в школе, не смог никуда поступить."
+    scene secret base
+    
+    show saad 
+    with Dissolve(.6)
+    s "Из-за этого пришлось искать работу."
+    s "Нигде не задерживался на долго"
     
     #код карты
-    screen map():
-            imagemap:
-                ground "images/map.jpg"
-                idle "images/map.jpg"
-                hotspot (330, 510, 110, 100) action Jump("guk")#на карте номер 1
-                hotspot (504, 540, 60, 60) action Jump("ineu")#на карте номер 2
-                #hotspot (207, 630, 60, 60) action Jump("label_3")
-                hotspot (177, 900, 60, 60) action Jump("stroika")#на карте номер 4 
-                hotspot (520, 325, 60, 60) action Jump("teplofuck")#на карте номер 5
-                hotspot (840, 627, 60, 60) action Jump("fizteh")#на карте номер 6
-                hotspot (1458, 770, 60, 60) action Jump("chempion")#на карте номер 7 
-                hotspot (1477, 400, 70, 70) action Jump("label_8")#на карте номер 8
-                hotspot (1182, 120, 70, 70) action Jump("dormitory")#на карте номер 9
-                hotspot (1264, 848, 134, 96) action Jump("inmt")#пока без номера
-
+    
     label map:
         # вызов карты
         call screen map
@@ -110,7 +115,8 @@ label start:
         return     
 return
         
-
+label dict:
+    call screen dictionary
 
    
 

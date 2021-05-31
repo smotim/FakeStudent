@@ -1485,3 +1485,34 @@ style slider_pref_vbox:
 style slider_pref_slider:
     variant "small"
     xsize 600
+
+####### Наши экраны
+screen map():
+            imagemap:
+                ground "images/map.jpg"
+                idle "images/map.jpg"
+                hotspot (330, 510, 110, 100) action Jump("guk")#на карте номер 1
+                hotspot (504, 540, 60, 60) action Jump("ineu")#на карте номер 2
+                #hotspot (207, 630, 60, 60) action Jump("label_3")
+                hotspot (177, 900, 60, 60) action Jump("stroika")#на карте номер 4 
+                hotspot (520, 325, 60, 60) action Jump("teplofuck")#на карте номер 5
+                hotspot (840, 627, 60, 60) action Jump("fizteh")#на карте номер 6
+                hotspot (1458, 770, 60, 60) action Jump("chempion")#на карте номер 7 
+                hotspot (1477, 400, 70, 70) action Jump("label_8")#на карте номер 8
+                hotspot (1182, 120, 70, 70) action Jump("dormitory")#на карте номер 9
+                hotspot (1264, 848, 134, 96) action Jump("inmt")#пока без номера
+screen dictionaryButton:
+    vbox xalign 0.01 ypos 10:
+        style_prefix "blue"
+        textbutton "Словарь" action Jump("dict")
+
+screen dictionary(): 
+    frame xalign 0.01 ypos 10:  
+        vbox:
+            style_prefix "green"
+            textbutton "Словарь" action Hide("dictionary")
+            if start_flag:
+                text "Студик - синоним слова студенческий билет"
+            else:
+                text "Студик - ????"
+            
