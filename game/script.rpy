@@ -67,7 +67,7 @@ label start:
     s "Нигде не задерживался на долго"
     
     #код карты
-    
+
     label map:
         # вызов карты
         call screen map
