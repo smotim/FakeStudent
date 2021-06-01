@@ -8,7 +8,7 @@
   <a href="https://t.me/slang_team"><img src="https://badgen.net/badge/icon/Telegram?icon=telegram&label"></a>
   <a href=""><img src="https://badgen.net/github/stars/smotim/FakeStudent"></a>
   <a href=""><img src="https://badgen.net//github/contributors//smotim/FakeStudent"></a>
- <a href=""><img src="https://badgen.net///github/commits/micromatch/micromatch"></a>
+ <a href=""><img src="https://badgen.net///github/commits//smotim/FakeStudent"></a>
  
  </p>
 
