@@ -1,6 +1,11 @@
 # FakeStudent
 Образовательная визуальная новелла для изучения русского студенческого сленга и синонимов
 ## Для запуска необходим [Ren'Py](https://www.renpy.org "скачать с официального сайта")  версии 7.4.4 и выше
+
+[![npm version][npm-src]][npm-href]
+[![Install size][packagephobia-src]][packagephobia-href]
+[![License][license-src]][license-href]
+
 #### Команда Slang:
 
 ##### [Смолин Тимофей](https://vk.com/smotim "Страница ВКонтакте")
