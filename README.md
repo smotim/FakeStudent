@@ -2,9 +2,15 @@
 Образовательная визуальная новелла для изучения русского студенческого сленга и синонимов
 ## Для запуска необходим [Ren'Py](https://www.renpy.org "скачать с официального сайта")  версии 7.4.4 и выше
 
-[![npm version][npm-src]][npm-href]
-[![Install size][packagephobia-src]][packagephobia-href]
-[![License][license-src]][license-href]
+<p align="center">
+  <a href=""><img src="https://badgen.net//badge/license/MIT/green" alt="License"></a>
+  <a href="https://vk.com/fake_student_game"><img src="https://badgen.net/badge/VK/Vkontakte/blue"></a>
+  <a href="https://t.me/slang_team"><img src="https://badgen.net/badge/icon/Telegram?icon=telegram&label"></a>
+  <a href=""><img src="https://badgen.net/github/stars/smotim/FakeStudent"></a>
+  <a href=""><img src="https://badgen.net//github/contributors//smotim/FakeStudent"></a>
+ <a href=""><img src="https://badgen.net///github/commits/micromatch/micromatch"></a>
+ 
+ </p>
 
 #### Команда Slang:
 
