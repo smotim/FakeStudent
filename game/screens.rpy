@@ -1489,8 +1489,8 @@ style slider_pref_slider:
 ####### Наши экраны
 screen map():
             imagemap:
-                ground "images/map.jpg"
-                idle "images/map.jpg"
+                ground "map"
+                idle "map" ##сюда можно добавить подсветку
                 hotspot (330, 510, 110, 100) action Jump("guk")#на карте номер 1
                 hotspot (504, 540, 60, 60) action Jump("ineu")#на карте номер 2
                 #hotspot (207, 630, 60, 60) action Jump("label_3")
@@ -1515,4 +1515,12 @@ screen dictionary():
                 text "Студик - синоним слова студенческий билет"
             else:
                 text "Студик - ????"
-            
+
+screen browser():
+        imagemap:
+            ground "browser_startpage"
+            hotspot (756, 494, 139, 132) action Jump("vk")#на карте номер 1
+            hotspot (888, 488, 139, 132) action Jump("brs")#на карте номер 2
+            hotspot (1021, 488, 139, 132) action Jump("plan")#на карте номер 2 
+            hotspot (747, 638, 144, 144) action Jump("scheduele")
+            hotspot (888, 638, 144, 144) action Jump("teams")

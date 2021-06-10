@@ -31,7 +31,25 @@ label start:
     show gus
     g "Привет, [name]!"
     main "Привет!"
-
+    label browser:
+        call screen browser
+    label brs:
+        scene browser_brs
+        "Место, куда преподаватели выставляют оценки"
+        return
+    label vk:
+        scene browser_vk
+        "Место для общения с одногруппниками"
+        return
+    label plan:
+        scene browser_plan
+        "Здесь можно посмотреть список предметов"
+    label scheduele:
+        scene browser_scheduele
+        "Расписание занятий"
+    label teams:
+        scene browser_teams
+        "Расписание занятий"
     g "Ты запустил образовательную игру \"Fake Student\""
     g "Если что, открыть меню можно клавишей \"esc\" или правой кнопкой мыши."
     g "Попробуй выйти в меню. Там ты увидишь, что в этой игре можно сохраняться."
@@ -75,11 +93,11 @@ label start:
     label guk:
         scene guk
         g "Добро пожаловать в ГУК!"
-        jump imagemap_done
+        jump map_done
     label ineu:
         scene ineu
         g "Ты в ИНЭУ"
-        jump imagemap_done 
+        jump map_done 
     #label label_3:#todo левое крыло гука
         #scene guk
         #g "sadsa"
@@ -87,31 +105,31 @@ label start:
     label stroika:
         scene stroika
         g "Стройка"
-        jump imagemap_done
+        jump map_done
     label teplofuck:
         scene teplofuck
         g "Теплофак❤"
-        jump imagemap_done 
+        jump map_done 
     label fizteh:
         scene fizteh
         g "Welcome"
-        jump imagemap_done
+        jump map_done
     label chempion:
         scene chempion
         g "*Эта локация одобрена разработчиками*"
-        jump imagemap_done
+        jump map_done
     label label_8:#todo Физ-ра
         scene guk
         g "sadsa"
-        jump imagemap_done   
+        jump map_done   
     label dormitory:
         scene dormitory
         g "Родная общага"
     label inmt:
         scene inmt
         g "Кеша"
-        jump imagemap_done 
-    label imagemap_done:
+        jump map_done 
+    label map_done:
         return     
 return
         
