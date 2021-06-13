@@ -1488,19 +1488,21 @@ style slider_pref_slider:
 
 ####### Наши экраны
 screen map():
-            imagemap:
-                ground "map"
-                idle "map" ##сюда можно добавить подсветку
-                hotspot (330, 510, 110, 100) action Jump("guk")#на карте номер 1
-                hotspot (504, 540, 60, 60) action Jump("ineu")#на карте номер 2
-                #hotspot (207, 630, 60, 60) action Jump("label_3")
-                hotspot (177, 900, 60, 60) action Jump("stroika")#на карте номер 4 
-                hotspot (520, 325, 60, 60) action Jump("teplofuck")#на карте номер 5
-                hotspot (840, 627, 60, 60) action Jump("fizteh")#на карте номер 6
-                hotspot (1458, 770, 60, 60) action Jump("chempion")#на карте номер 7 
-                hotspot (1477, 400, 70, 70) action Jump("label_8")#на карте номер 8
-                hotspot (1182, 120, 70, 70) action Jump("dormitory")#на карте номер 9
-                hotspot (1264, 848, 134, 96) action Jump("inmt")#пока без номера
+    default tt = Tooltip("{color=#000}Наведите курсор на цифру, чтобы увидеть подсказку{/color}")
+    imagemap:
+        ground "map"
+        idle "map" ##сюда можно добавить подсветку
+        hotspot (330, 510, 110, 100) hovered tt.Action("Гук") action Jump("guk")#на карте номер 1
+        hotspot (504, 540, 60, 60) hovered tt.Action("ИНЭУ") action Jump("ineu")#на карте номер 2
+        #hotspot (207, 630, 60, 60) action Jump("label_3")
+        hotspot (177, 900, 60, 60) hovered tt.Action("АСУ") action Jump("stroika")#на карте номер 4 
+        hotspot (520, 325, 60, 60) hovered tt.Action("Теплофак") action Jump("teplofuck")#на карте номер 5
+        hotspot (840, 627, 60, 60) hovered tt.Action("ФТИ") action Jump("fizteh")#на карте номер 6
+        hotspot (1458, 770, 60, 60) hovered tt.Action("РТФ") action Jump("chempion")#на карте номер 7 
+        hotspot (1477, 400, 70, 70) hovered tt.Action("Стадион") action Jump("label_8")#на карте номер 8
+        hotspot (1182, 120, 70, 70) hovered tt.Action("Общежитие") action Jump("dormitory")#на карте номер 9
+        hotspot (1264, 848, 134, 96) hovered tt.Action("ИНМиТ") action Jump("inmt")#пока без номера
+    text tt.value
 screen dictionaryButton:
     vbox xalign 0.01 ypos 10:
         style_prefix "blue"
@@ -1519,8 +1521,27 @@ screen dictionary():
 screen browser():
         imagemap:
             ground "browser_startpage"
-            hotspot (756, 494, 139, 132) action Jump("vk")#на карте номер 1
-            hotspot (888, 488, 139, 132) action Jump("brs")#на карте номер 2
-            hotspot (1021, 488, 139, 132) action Jump("plan")#на карте номер 2 
+            hotspot (756, 494, 139, 132) action Jump("vk")
+            hotspot (888, 488, 139, 132) action Jump("brs")
+            hotspot (1021, 488, 139, 132) action Jump("plan")
             hotspot (747, 638, 144, 144) action Jump("scheduele")
             hotspot (888, 638, 144, 144) action Jump("teams")
+screen browser_vk():
+
+                #(564, 151, 254, 32)
+        imagemap:
+            ground "browser_vk"
+            hotspot((482, 135, 398, 85)) action Jump("brs")#брс тут временно
+
+screen sosed_new_vk():
+    vbox:
+        xpos 570 ypos 170
+        text  _("{color=#000}Новое сообщение{/color}"):
+            size 24
+screen vk_mc_name():
+    vbox:
+        xpos 1185 ypos 13
+        text _("{color=#000}[name]{/color}"):
+            size 24
+#screen map_icon():
+    #textbutton:

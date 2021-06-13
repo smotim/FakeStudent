@@ -4,6 +4,8 @@ define g = Character('Гусь', color="#c8fff8")
 define s = Character('[name]', color="#c6fcc8")
 image gus = im.Scale("gus.png", 480, 700)
 define main = Character("[name]")
+image history_teacher = im.Scale("history_teacher.png", 244, 866)
+define hist = Character('Преподаватель истории', color="#c8fff8")
  
 #image map = im.Scale("map.jpg")
 #image map buttons = im.Scale("map_buttons.jpg")
@@ -31,16 +33,34 @@ label start:
     show gus
     g "Привет, [name]!"
     main "Привет!"
+    menu:
+        "Зайти в ГУК":
+            jump story_1
+    label story_1:
+        scene secret_base
+        hist "Проходите, {color=#025}присаживайтесь{/color}."
+        show history_teacher at right
+        hist "Я буду вести у вас историю до конца семестра."
+        hist "Тема урока - \"Исторические источники\""
+        show letopis at left
+        hist "{color=#025}Взгляните{/color} на доску. Это страница из Лавреньтевской летописи. Едва ли современный человек без подготовки сможет прочитать что-нибудь."
+        hist "Задание: узнайте в каком году была создана эта летопись."
+    $sosed_message=True
+    #браузер и кнопки на его главной странице
     label browser:
-        call screen browser
+        show screen browser
+        "Это экран браузера, здесь можно переходить на сайты, нажимая на значки под строкой поиска"
+        "Чтобы начался сюжет, нажмите откройте карту и нажмите на цифру 3"
     label brs:
         scene browser_brs
         "Место, куда преподаватели выставляют оценки"
         return
     label vk:
-        scene browser_vk
+        show screen browser_vk
+        if sosed_message:
+            show screen sosed_new_vk
+        show screen vk_mc_name
         "Место для общения с одногруппниками"
-        return
     label plan:
         scene browser_plan
         "Здесь можно посмотреть список предметов"
