@@ -50,7 +50,7 @@ label start:
         "Ты решаешь тоже посмотреть в интеренете и открываешь свой ноутбук"
         $ renpy.notify("Нажми на строку поиска, чтобы выйти в Интернет") 
         
-    label googling:
+    label .googling:
         hide screen browser
         "Кажется этой летописи почти 700 лет"
         $sosed_message=True
@@ -59,7 +59,7 @@ label start:
         #play sound "sound/ring.mp3" - очень громко
         "Пара уже закончилась, посмотрю потом"
     
-    label story_12:
+    label .story_12:
         show screen map
         "Нужно вернуться в {color=#025}общагу{/color}"
         $ renpy.notify("Общежитие = кнопка 8")
@@ -162,6 +162,8 @@ label start:
     label dormitory:
         scene dormitory
         show screen dormitory_label
+        "Внимание, конец игры!"
+        return
     label inmt:
         scene inmt
         g "Кеша"
