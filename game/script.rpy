@@ -35,8 +35,8 @@ label start:
     main "Привет!"
     menu:
         "Зайти в ГУК":
-            jump story_1
-    label story_1:
+            jump story_11
+    label story_11:
         scene secret_base
         hist "Проходите, {color=#025}присаживайтесь{/color}."
         show history_teacher at right
@@ -45,12 +45,29 @@ label start:
         show letopis at left
         hist "{color=#025}Взгляните{/color} на доску. Это страница из Лавреньтевской летописи. Едва ли современный человек без подготовки сможет прочитать что-нибудь."
         hist "Задание: узнайте в каком году была создана эта летопись."
-    $sosed_message=True
+        "*Кто-то с заднего ряда*" "Сейчас посмотрим в {color=#025}инете{/color}"
+        show screen browser
+        "Ты решаешь тоже посмотреть в интеренете и открываешь свой ноутбук"
+        $ renpy.notify("Нажми на строку поиска, чтобы выйти в Интернет") 
+        
+    label googling:
+        hide screen browser
+        "Кажется этой летописи почти 700 лет"
+        $sosed_message=True
+        $ renpy.notify("✉Новое уведомление от Вконтакте")
+        "Кажется мне пришло какое-то сообщение"
+        #play sound "sound/ring.mp3" - очень громко
+        "Пара уже закончилась, посмотрю потом"
+    
+    label story_12:
+        show screen map
+        "Нужно вернуться в {color=#025}общагу{/color}"
+        $ renpy.notify("Общежитие = кнопка 8")
+    
     #браузер и кнопки на его главной странице
     label browser:
         show screen browser
         "Это экран браузера, здесь можно переходить на сайты, нажимая на значки под строкой поиска"
-        "Чтобы начался сюжет, нажмите откройте карту и нажмите на цифру 3"
     label brs:
         scene browser_brs
         "Место, куда преподаватели выставляют оценки"
@@ -108,7 +125,7 @@ label start:
 
     label map:
         # вызов карты
-        call screen map
+        show screen map
     #Места, в которые можно перейти
     label guk:
         scene guk
@@ -144,7 +161,7 @@ label start:
         jump map_done   
     label dormitory:
         scene dormitory
-        g "Родная общага"
+        show screen dormitory_label
     label inmt:
         scene inmt
         g "Кеша"
@@ -155,6 +172,8 @@ return
         
 label dict:
     call screen dictionary
+label lapt:
+    call screen browser
 
    
 
