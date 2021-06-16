@@ -61,7 +61,7 @@ label tutorial:
         "Зайти в ГУК":
             jump story_11
     label story_11:
-        scene secret_base
+        scene lecture_hall
         show history_teacher at right
         "???" "Проходите, присаживайтесь... Всем здравствуйте! Я Елена Игоревна, ваш преподаватель истории."
         hist "Теперь взгляните на доску. Как думаете, что тут изображено?"
