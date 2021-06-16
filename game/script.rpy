@@ -2,7 +2,7 @@
 # Определение персонажей игры.
 define g = Character('Гусь', color="#c8fff8")
 define s = Character('[name]', color="#c6fcc8")
-image gus = im.Scale("gus.png", 480, 700)
+#image gus = im.Scale("gus.png", 480, 700)
 define main = Character("[name]")
 image history_teacher = im.Scale("history_teacher.png", 244, 866)
 define hist = Character('Елена Игоревна', color="#c8fff8")
@@ -52,9 +52,9 @@ label tutorial:
         "Я не знаю что такое студик":
             $renpy.notify("Слово \"студик\" добавлено в словарь")
             $studik=True
-            g "Молодец! Видел уведомление в правом верхнем углу? Теперь проверь словарик еще раз"
+            g "Молодец! Видел уведомление в левом верхнем углу? Теперь проверь словарик еще раз"
             show screen browser_button
-            "появилась новая кнопка. Работает?"
+            g "Появилась новая кнопка. Работает?"
             g "Ой, кажется ты опаздываешь на историю!"
 
     menu:
