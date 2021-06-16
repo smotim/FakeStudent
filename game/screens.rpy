@@ -1533,7 +1533,10 @@ screen dictionary():
             else:
                 text "\n4.Сковородка - ????"
             textbutton "Закрыть словарь" action Hide("dictionary")
-
+screen browser_button:
+    vbox xpos 1750 ypos 80:
+        style_prefix "blue"
+        textbutton "Ноутбук" action Jump("lapt")
 
 screen browser():
         imagemap:
@@ -1544,6 +1547,9 @@ screen browser():
             hotspot (1021, 488, 139, 132) action Jump("plan")
             hotspot (747, 638, 144, 144) action Jump("scheduele")
             hotspot (888, 638, 144, 144) action Jump("teams")
+        vbox xpos 1750 ypos 80:
+            style_prefix "blue"
+            textbutton "Ноутбук" action Hide("browser")
 screen browser_vk():
 
                 #(564, 151, 254, 32)
