@@ -51,6 +51,7 @@ label tutorial:
             jump tutorial
         "Я не знаю что такое студик":
             $renpy.notify("Слово \"студик\" добавлено в словарь")
+            $studik=True
             g "Молодец! Видел уведомление в правом верхнем углу? Теперь проверь словарик еще раз"
             show screen browser_button
             "появилась новая кнопка. Работает?"
@@ -229,44 +230,50 @@ label tutorial:
         show screen map
     #Места, в которые можно перейти
     label guk:
+        hide screen map
         scene guk
         g "Добро пожаловать в ГУК!"
-        jump map_done
+        call map_done from _call_map_done
     label ineu:
+        hide screen map
         scene ineu
         g "Ты в ИНЭУ"
         jump map_done 
-    #label label_3:#todo левое крыло гука
-        #scene guk
-        #g "sadsa"
-        #jump imagemap_done 
     label stroika:
+        hide screen map
         scene stroika
         g "Стройка"
         jump map_done
     label teplofuck:
+        hide screen map
         scene teplofuck
         g "Теплофак❤"
         jump map_done 
     label fizteh:
+        hide screen map
         scene fizteh
         g "Welcome"
         jump map_done
     label chempion:
+        hide screen map
         scene chempion
         g "*Эта локация одобрена разработчиками*"
         jump map_done
     label label_8:#todo Физ-ра
+        hide screen map
         scene guk
         g "sadsa"
         jump map_done   
     label dormitory:
+        hide screen map
         scene dormitory
         jump story_12
         
         "Внимание, конец игры!"
+        jump map_done
         return
     label inmt:
+        hide screen map
         scene inmt
         g "Кеша"
         jump map_done 
